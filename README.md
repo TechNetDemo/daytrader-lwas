@@ -34,3 +34,21 @@ $ docker-machine ip default
 $ docker exec -it mysql /bin/bash
 $ mysql -u root -p
 $ show databases;
+
+
+# Websphere Liberty
+
+docker build -t t-was/demo:1.0 .
+
+docker run -d --name t-was -p 9060:9060 -p 9043:9043 -p 9080:9080 -p 9443:9443 t-was/sample-app:1.0
+
+L-was
+user: 1001
+group: 0
+
+Port 9080, 9443
+
+
+docker build -t l-was/daytrader:1.0 .
+
+docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
