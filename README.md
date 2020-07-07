@@ -30,20 +30,26 @@ Login as `admin` / `developer`
 
 ## Create Openshift Project
 
-Create Project `DayTrader`
+Click `Create Project`
+
+Input the following information and press `Create` 
+- Name: `DayTrader`
+- Display Name: `DayTrader`
 
 
 ## Deploy MySQL Database
 
 Switch to Developer Portal
 
-Press `Database`
+Click `+Add`
+
+Click `Database`
 
 Select `MySQL`
 
 Press `Instantiate Template`
 
-Input Template Information
+Input the following information and press `Create`
 - Database Service Name: `daytrader-mysql`
 - MySQL Connection Username: `daytrader`
 - MySQL Connection Password: `daytrader`
@@ -53,36 +59,23 @@ Input Template Information
 
 ## Deploy DayTrader from Dockerfile
 
-Pull MySQL Docker Image
+Click `+Add`
 
-    $ docker pull mysql:8.0.20
+Click `From Dockerfile`
 
-
-Deploy MySQL Container
-
-    $ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
-
-
-Check Container by Docker Logs
-
-    $ docker logs daytrader-mysql --follow
-    
-    
-Display Running Processes of Container
-
-    $ docker top daytrader-mysql
-
-
-Enter MySQL container
-
-    $ docker exec -it daytrader-mysql /bin/bash
-    
-    $ mysql -u root -p
-    input password: admin
-    $ show databases;
-    $ exit
-    $ exit
-
+Input the following information and press `Create`
+- Git Repo URL: `https://github.com/TechNetDemo/daytrader-lwas.git`
+- `Show Advanced Git Options`
+- Git Reference: `ocp4`
+- Container Port: `9080`
+- Application Name: `daytrader-app`
+- Name: `daytrader-app`
+- `Build Configuration`
+- Press `Add from ConfigMap or Secret` 4 times
+- name: `MYSQL_DAYTRADER_USER`  resource: `daytrader-mysql`
+- name: `MYSQL_DAYTRADER_PASSWORD`  resource: `daytrader-mysql`
+- name: `MYSQL_DAYTRADER_DB`    resource: `daytrader-mysql`
+- name: `MYSQL_DAYTRADER_SERVICE`
 
 # DayTrader App Instruction
 
