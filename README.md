@@ -1,6 +1,28 @@
 # Daytrader Java App on Websphere Liberty and MySQL Container
 
-Please clone this git repository to your local machine with installed docker engine / docker toolbox
+In this lab, we will deploy two-tier applications on docker
+- Daytrader Java App on WebSphere Liberty
+- MySQL Database
+
+
+# Installation
+
+Docker Engine
+
+https://docs.docker.com/engine/install/ 
+
+
+Docker Toolbox
+
+https://github.com/docker/toolbox/releases
+
+
+## Please clone this git repository to your local machine with installed docker engine / docker toolbox
+
+For Docker Toolbox, please open Docker Quickstart Terminal
+
+    git clone https://github.com/TechNetDemo/daytrader-lwas.git
+
 
 - [Setup Docker Network](#setup-docker-network)
 - [Create Docker Volume](#create-docker-volume)
