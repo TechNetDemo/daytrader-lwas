@@ -1,6 +1,6 @@
 # Daytrader Java App on Websphere Liberty and MySQL Container
 
-In this lab, we will deploy two-tier applications on docker
+In this lab, we will deploy two-tier application on docker
 - Daytrader Java App on WebSphere Liberty
 - MySQL Database
 
