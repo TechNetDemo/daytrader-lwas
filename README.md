@@ -16,6 +16,7 @@ Create Docker Network for Two Tier App
 
     docker network create --driver=bridge --subnet=192.168.0.0/24 br0
 
+
 Show Docker Network
 
     docker network ls
@@ -23,7 +24,7 @@ Show Docker Network
     
 Show Docker Network Details
 
-     docker network inspect br0
+    docker network inspect br0
 
 
 # Create Docker Volume
@@ -50,14 +51,19 @@ Pull MySQL Docker Image
     docker pull mysql:8.0.20
 
 
-Run MySQL Container
+Deploy MySQL Container
 
-    $ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
+    docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
 
 
 Check Container by Docker Logs
 
     docker logs daytrader-mysql --follow
+    
+    
+Display Running Processes of Container
+
+    docker top daytrader-mysql
 
 
 Enter MySQL container
@@ -113,7 +119,7 @@ Get Docker Toolbox VM IP
 
 # DayTrader App Instruction
 
-1. Open Web Browser and go to http://<ip get from step 3>:9080/daytrader 
+1. Open Web Browser and go to http://<Host IP / Docker Toolbox VM IP>:9080/daytrader 
 
 
 2. Go to "Configuration" Tab
@@ -134,3 +140,36 @@ Get Docker Toolbox VM IP
 
 
 6. Go to "Trading & Portfolios" and Press "Login"
+
+
+# Operational Process
+
+Stop Daytrader Container
+
+    docker stop daytrader
+    docker ps
+    
+Start Daytrader Container
+
+    docker start daytrader
+    docker ps
+    
+# Test Docker Volume
+
+Stop MySQL Container
+
+    docker stop daytrader-mysql
+  
+Remve MySQL Container
+
+    docker rm daytrader-mysql
+  
+Deply MySQL Container 
+
+    docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
+    
+When MySQL is up and running, you can try to login daytrader again. 
+
+If error appears, you may restart daytrader container
+
+    docker restart daytrader
