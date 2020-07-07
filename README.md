@@ -29,7 +29,7 @@ Right click the terminal, and select "Properties"
 
 Git Clone daytrader-lwas Reporsitory
 
-    git clone https://github.com/TechNetDemo/daytrader-lwas.git
+    $ git clone https://github.com/TechNetDemo/daytrader-lwas.git
 
 
 
@@ -49,107 +49,108 @@ Git Clone daytrader-lwas Reporsitory
 
 Create Docker Network for Two Tier App
 
-    docker network create --driver=bridge --subnet=192.168.0.0/24 br0
+    $ docker network create --driver=bridge --subnet=192.168.0.0/24 br0
 
 
 Show Docker Network
 
-    docker network ls
+    $ docker network ls
     
     
 Show Docker Network Details
 
-    docker network inspect br0
+    $ docker network inspect br0
 
 
 # Create Docker Volume
 
 Create Docker Volume for MySQL Container
 
-    docker volume create daytrader-mysql-volume
+    $ docker volume create daytrader-mysql-volume
 
 
 Show Docker Volume
 
-    docker volume ls
+    $ docker volume ls
     
 
 Show Docker Volume Details
 
-    docker volume inspect daytrader-mysql-volume
+    $ docker volume inspect daytrader-mysql-volume
 
 
 # Deploy MySQL Container
 
 Pull MySQL Docker Image
 
-    docker pull mysql:8.0.20
+    $ docker pull mysql:8.0.20
 
 
 Deploy MySQL Container
 
-    docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
+    $ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
 
 
 Check Container by Docker Logs
 
-    docker logs daytrader-mysql --follow
+    $ docker logs daytrader-mysql --follow
     
     
 Display Running Processes of Container
 
-    docker top daytrader-mysql
+    $ docker top daytrader-mysql
 
 
 Enter MySQL container
 
-    docker exec -it daytrader-mysql /bin/bash
-    mysql -u root -p
-    show databases;
-    exit
-    exit
+    $ docker exec -it daytrader-mysql /bin/bash
+    $ mysql -u root -p
+    input password: admin
+    $ show databases;
+    $ exit
+    $ exit
 
 
 # Deploy Daytrader Container
 
 Build Docker Image with Application and Configurations
 
-    docker build -t l-was/daytrader:1.0 .
+    $ docker build -t l-was/daytrader:1.0 .
 
 
 Run Container with Custom Image
 
-    docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
+    $ docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
 
 
 Check Container by Docker Logs
 
-    docker logs daytrader --follow
+    $ docker logs daytrader --follow
     
 Display Running Processes of Container
 
-    docker top daytrader
+    $ docker top daytrader
 
 
 # Monitoring
 
 Docker Network Inspect
 
-    docker network inspect br0
+    $ docker network inspect br0
 
 
 Get Running Docker Container
 
-    docker ps
+    $ docker ps
     
 Display Docker Container(s) Resource Usage Statistics
 
-    docker stats --no-stream
+    $ docker stats --no-stream
 
 
 Get Docker Toolbox VM IP
 
-    docker-machine ip default
+    $ docker-machine ip default
 
 
 # DayTrader App Instruction
@@ -190,23 +191,23 @@ Get Docker Toolbox VM IP
 
 Stop Daytrader Container
 
-    docker stop daytrader
-    docker ps
+    $ docker stop daytrader
+    $ docker ps
     
 Start Daytrader Container
 
-    docker start daytrader
-    docker ps
+    $ docker start daytrader
+    $ docker ps
     
 # Test Docker Volume
 
 Stop MySQL Container
 
-    docker stop daytrader-mysql
+    $ docker stop daytrader-mysql
   
 Remove MySQL Container
 
-    docker rm daytrader-mysql
+    $ docker rm daytrader-mysql
     
     
 When you try to login daytrader, error occurs.
@@ -214,7 +215,7 @@ When you try to login daytrader, error occurs.
   
 Deploy MySQL Container 
 
-    docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
+    $ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
     
 
 When MySQL is up and running, you can try to login daytrader again. 
