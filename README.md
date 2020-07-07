@@ -4,9 +4,9 @@ Please clone this git repository to your local machine with installed docker eng
 
 - [Setup Docker Network](#setup-docker-network)
 - [Create Docker Volume](#create-docker-volume)
-- [Create MySQL Container](#create-mysql-container)
-- [Create Daytrader with Websphere Liberty Container](#create-daytrader-with-websphere-liberty-container)
-- [Verification](#verification)
+- [Deploy MySQL Container](#deploy-mysql-container)
+- [Deploy Daytrader Container](#deploy-daytrader-container)
+- [Monitoring](#monitoring)
 - [DayTrader App Instruction](#daytrader-app-instruction)
 
 
@@ -19,6 +19,11 @@ Create Docker Network for Two Tier App
 Show Docker Network
 
     docker network ls
+    
+    
+Show Docker Network Details
+
+     docker network inspect br0
 
 
 # Create Docker Volume
@@ -31,9 +36,14 @@ Create Docker Volume for MySQL Container
 Show Docker Volume
 
     docker volume ls
+    
+
+Show Docker Volume Details
+
+    docker volume inspect daytrader-mysql-volume
 
 
-# Create MySQL Container
+# Deploy MySQL Container
 
 Pull MySQL Docker Image
 
@@ -59,7 +69,7 @@ Enter MySQL container
     exit
 
 
-# Create Daytrader with Websphere Liberty Container
+# Deploy Daytrader Container
 
 Build Docker Image with Application and Configurations
 
@@ -74,9 +84,13 @@ Run Container with Custom Image
 Check Container by Docker Logs
 
     docker logs daytrader --follow
+    
+Display Running Processes of Container
+
+    docker top daytrader
 
 
-# Verification
+# Monitoring
 
 Docker Network Inspect
 
@@ -86,6 +100,10 @@ Docker Network Inspect
 Get Running Docker Container
 
     docker ps
+    
+Display Docker Container(s) Resource Usage Statistics
+
+    docker stats --no-stream
 
 
 Get Docker Toolbox VM IP
