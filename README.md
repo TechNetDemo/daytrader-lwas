@@ -24,6 +24,9 @@ For Docker Toolbox, please open Docker Quickstart Terminal
     git clone https://github.com/TechNetDemo/daytrader-lwas.git
 
 
+
+# Hands on Lab
+
 - [Setup Docker Network](#setup-docker-network)
 - [Create Docker Volume](#create-docker-volume)
 - [Deploy MySQL Container](#deploy-mysql-container)
