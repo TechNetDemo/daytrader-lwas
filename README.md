@@ -1,38 +1,19 @@
-# Daytrader Java App on Websphere Liberty and MySQL Container
+# Daytrader Java App on OCP4
 
-In this lab, we will deploy two-tier application on docker
+In this lab, we will deploy two-tier application on OCP4
 - Daytrader Java App on WebSphere Liberty
 - MySQL Database
 
 
-# Installation
+Start OCP 4 Playground (OpenShift 4.2) - 60 mins
 
-Docker Engine
+Go to `https://www.openshift.com/learn/courses/playground/`
 
-https://docs.docker.com/engine/install/ 
+Click `START SENARIO`
 
+Go to `Console` tab
 
-Docker Toolbox (Windows 7)
-
-https://github.com/docker/toolbox/releases
-
-
-## Please clone this git repository to your local machine with installed docker engine / docker toolbox
-
-For Docker Toolbox, please open Docker Quickstart Terminal.
-
-Right click the terminal, and select "Properties"
-- enable QuickEdit Mode on Options tab
-- adjust Window Size on Layout tab
-
-
-
-Git Clone daytrader-lwas Reporsitory
-
-    $ git clone https://github.com/TechNetDemo/daytrader-lwas.git
-    
-    $ cd daytrader-lwas
-
+Login as `admin` / `developer`
 
 
 # Hands on Lab
@@ -47,7 +28,7 @@ Git Clone daytrader-lwas Reporsitory
 - [Test Docker Volume](#test-docker-volume)
 
 
-# Setup Docker Network
+# Create DayTrader Project
 
 Create Docker Network for Two Tier App
 
