@@ -14,14 +14,23 @@ $ docker volume ls
 $ docker pull mysql:8.0.20
 
 4. Run Container
+
 $ docker run -d --name daytrader-mysql \\
+
 --network br0 \\
+
 --publish 3306:3306 \\
+
 --volume daytrader-mysql-volume:/var/lib/mysql \\
+
 -e MYSQL_ROOT_PASSWORD=admin \\
+
 -e MYSQL_DATABASE=daytrader_db \\
+
 -e MYSQL_USER=daytrader \\
+
 -e MYSQL_PASSWORD=daytrader \\
+
 mysql:8.0.20
 
 5. Docker Network Inspect
