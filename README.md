@@ -123,7 +123,7 @@ Build Docker Image with Application and Configurations
 
 Run Container with Custom Image
 
-    $ docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
+    $ docker run -d --name daytrader --network br0 -p 7080:9080 -p 7443:9443 l-was/daytrader:1.0
 
 
 Check Container by Docker Logs
@@ -158,7 +158,7 @@ Get Docker Toolbox VM IP
 
 # DayTrader App Instruction
 
-1. Open Web Browser and go to http://<Host IP / Docker Toolbox VM IP>:9080/daytrader 
+1. Open Web Browser and go to http://<Host IP / Docker Toolbox VM IP>:7080/daytrader 
 
 
 2. Go to "Configuration" Tab
