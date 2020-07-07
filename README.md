@@ -28,41 +28,30 @@ Login as `admin` / `developer`
 - [Test Docker Volume](#test-docker-volume)
 
 
-# Create DayTrader Project
+## Create Openshift Project
 
-Create Docker Network for Two Tier App
-
-    $ docker network create --driver=bridge --subnet=192.168.0.0/24 br0
+Create Project `DayTrader`
 
 
-Show Docker Network
+## Deploy MySQL Database
 
-    $ docker network ls
-    
-    
-Show Docker Network Details
+Switch to Developer Portal
 
-    $ docker network inspect br0
+Press `Database`
 
+Select `MySQL`
 
-# Create Docker Volume
+Press `Instantiate Template`
 
-Create Docker Volume for MySQL Container
-
-    $ docker volume create daytrader-mysql-volume
-
-
-Show Docker Volume
-
-    $ docker volume ls
-    
-
-Show Docker Volume Details
-
-    $ docker volume inspect daytrader-mysql-volume
+Input Template Information
+- Database Service Name: `daytrader-mysql`
+- MySQL Connection Username: `daytrader`
+- MySQL Connection Password: `daytrader`
+- MySQL root user Password: `admin`
+- MySQL Database Name: `daytrader_db`
 
 
-# Deploy MySQL Container
+## Deploy DayTrader from Dockerfile
 
 Pull MySQL Docker Image
 
@@ -95,51 +84,9 @@ Enter MySQL container
     $ exit
 
 
-# Deploy Daytrader Container
-
-Build Docker Image with Application and Configurations
-
-    $ docker build -t l-was/daytrader:1.0 .
-
-
-Run Container with Custom Image
-
-    $ docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
-
-
-Check Container by Docker Logs
-
-    $ docker logs daytrader --follow
-    
-Display Running Processes of Container
-
-    $ docker top daytrader
-
-
-# Monitoring
-
-Docker Network Inspect
-
-    $ docker network inspect br0
-
-
-Get Running Docker Container
-
-    $ docker ps
-    
-Display Docker Container(s) Resource Usage Statistics
-
-    $ docker stats --no-stream
-
-
-Get Docker Toolbox VM IP
-
-    $ docker-machine ip default
-
-
 # DayTrader App Instruction
 
-1. Open Web Browser and go to http://<Host IP / Docker Toolbox VM IP>:9080/daytrader 
+1. Open Web Browser and go to 
 
 
 2. Go to "Configuration" Tab
@@ -169,40 +116,4 @@ Get Docker Toolbox VM IP
 
 
 9. Click "quotes", then you can the volume increased by 100 on the first row.
-
-
-# Operational Process
-
-Stop Daytrader Container
-
-    $ docker stop daytrader
-    
-    $ docker ps
-    
-Start Daytrader Container
-
-    $ docker start daytrader
-    
-    $ docker ps
-    
-# Test Docker Volume
-
-Stop MySQL Container
-
-    $ docker stop daytrader-mysql
-  
-Remove MySQL Container
-
-    $ docker rm daytrader-mysql
-    
-    
-When you try to login daytrader, error occurs.
-
-  
-Deploy MySQL Container 
-
-    $ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
-    
-
-When MySQL is up and running, you can try to login daytrader again. 
 
