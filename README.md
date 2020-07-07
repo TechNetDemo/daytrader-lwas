@@ -104,6 +104,7 @@ Display Running Processes of Container
 Enter MySQL container
 
     $ docker exec -it daytrader-mysql /bin/bash
+    
     $ mysql -u root -p
     input password: admin
     $ show databases;
@@ -192,11 +193,13 @@ Get Docker Toolbox VM IP
 Stop Daytrader Container
 
     $ docker stop daytrader
+    
     $ docker ps
     
 Start Daytrader Container
 
     $ docker start daytrader
+    
     $ docker ps
     
 # Test Docker Volume
