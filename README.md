@@ -12,7 +12,7 @@ Docker Engine
 https://docs.docker.com/engine/install/ 
 
 
-Docker Toolbox
+Docker Toolbox (Windows 7)
 
 https://github.com/docker/toolbox/releases
 
