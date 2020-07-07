@@ -30,6 +30,8 @@ Right click the terminal, and select "Properties"
 Git Clone daytrader-lwas Reporsitory
 
     $ git clone https://github.com/TechNetDemo/daytrader-lwas.git
+    
+    $ cd daytrader-lwas
 
 
 
