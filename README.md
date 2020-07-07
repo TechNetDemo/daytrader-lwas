@@ -179,7 +179,7 @@ Remove MySQL Container
 When you try to login daytrader, error occurs.
 
   
-Deply MySQL Container 
+Deploy MySQL Container 
 
     docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
     
