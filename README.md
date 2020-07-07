@@ -2,12 +2,19 @@
 
 Please clone this git repository to your local machine with installed docker engine / docker toolbox
 
+- [Setup Docker Network](#Setup Docker Network)
+- [Create Docker Volume](#Create Docker Volume)
+- [Create MySQL Container](#Create MySQL Container)
+- [Create Daytrader with Websphere Liberty Container](#Create Daytrader with Websphere Liberty Container)
+- [Verification](#Verification)
+- [DayTrader App Instruction](#DayTrader App Instruction)
 
-# Docker Network
+
+# Setup Docker Network
 
 1. Create Docker Network for Two Tier App
-
-$ docker network create --driver=bridge --subnet=192.168.0.0/24 br0
+  
+  docker network create --driver=bridge --subnet=192.168.0.0/24 br0
 
 
 2. Show Docker Network
@@ -15,7 +22,7 @@ $ docker network create --driver=bridge --subnet=192.168.0.0/24 br0
 $ docker network ls
 
 
-# Docker Volume
+# Create Docker Volume
 
 1. Create Docker Volume for MySQL Container
 
@@ -27,7 +34,7 @@ $ docker volume create daytrader-mysql-volume
 $ docker volume ls
 
 
-# MySQL Container
+# Create MySQL Container
 
 1. Pull MySQL Docker Image
 
@@ -57,7 +64,7 @@ $ exit
 $ exit
 
 
-# Daytrader with Websphere Liberty
+# Create Daytrader with Websphere Liberty Container
 
 1. Build Docker Image with Application and Configurations
 
@@ -91,7 +98,7 @@ $ docker ps
 $ docker-machine ip default
 
 
-# DayTrader App
+# DayTrader App Instruction
 
 1. Open Web Browser and go to http://<ip get from step 3>:9080/daytrader 
 
