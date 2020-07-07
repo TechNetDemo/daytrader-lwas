@@ -144,6 +144,15 @@ Get Docker Toolbox VM IP
 6. Go to "Trading & Portfolios" and Press "Login"
 
 
+7. Click "Quotes/Trade"
+
+
+8. Click "buy" on the first row
+
+
+9. Click "quotes", then you can the volume increased by 100 on the first row.
+
+
 # Operational Process
 
 Stop Daytrader Container
@@ -162,16 +171,18 @@ Stop MySQL Container
 
     docker stop daytrader-mysql
   
-Remve MySQL Container
+Remove MySQL Container
 
     docker rm daytrader-mysql
+    
+    
+When you try to login daytrader, error occurs.
+
   
 Deply MySQL Container 
 
     docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
     
+
 When MySQL is up and running, you can try to login daytrader again. 
 
-If error appears, you may restart daytrader container
-
-    docker restart daytrader
