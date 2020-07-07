@@ -22,25 +22,25 @@
 	<fileset dir="${server.config.dir}/resources/Daytrader3SampleDerbyLibs" id="DerbyFileset" includes="derby-10.10.1.1.jar"/>
 -->
 	<!-- Declare the jar files for MySQL access through JDBC. -->
-	<authData id="TradeDataSourceAuthData" password="daytrader" user="daytrader"/>
-	<authData id="TradeAdminAuthData" password="daytrader" user="daytrader"/>
+	<authData id="TradeDataSourceAuthData" password="@@@MYSQL_DAYTRADER_PASSWORD@@@" user="@@@MYSQL_DAYTRADER_USER@@@"/>
+	<authData id="TradeAdminAuthData" password="@@@MYSQL_DAYTRADER_PASSWORD@@@" user="@@@MYSQL_DAYTRADER_USER@@@"/>
  <library id="MySQLLib">
   <fileset dir="${server.config.dir}/resources/Daytrader3SampleMysqlLibs" includes="*.jar"/>
 </library>
 
 	<dataSource id="TradeDataSource" connectionManagerRef="conMgr1" jndiName="jdbc/TradeDataSource" type="javax.sql.DataSource">
   <jdbcDriver libraryRef="MySQLLib"/>
-  <properties databaseName="daytrader_db" 
-              serverName="daytrader-mysql" portNumber="3306" 
-              user="daytrader" password="daytrader"/>
+  <properties databaseName="@@@MYSQL_DAYTRADER_DB@@@" 
+              serverName="@@@MYSQL_DAYTRADER_SERVICE@@@" portNumber="3306" 
+              user="@@@MYSQL_DAYTRADER_USER@@@" password="@@@MYSQL_DAYTRADER_PASSWORD@@@"/>
 </dataSource>
 
 
 <dataSource id="NoTxTradeDataSource"  connectionManagerRef="conMgr2" jndiName="jdbc/NoTxTradeDataSource" transactional="false">
   <jdbcDriver libraryRef="MySQLLib"/>
-  <properties databaseName="daytrader_db" 
-              serverName="daytrader-mysql" portNumber="3306" 
-              user="daytrader" password="daytrader"/>
+  <properties databaseName="@@@MYSQL_DAYTRADER_DB@@@" 
+              serverName="@@@MYSQL_DAYTRADER_SERVICE@@@" portNumber="3306" 
+              user="@@@MYSQL_DAYTRADER_USER@@@" password="@@@MYSQL_DAYTRADER_PASSWORD@@@"/>
 </dataSource>
 
 	<messagingEngine id="defaultME">
