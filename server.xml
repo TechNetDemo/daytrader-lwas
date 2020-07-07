@@ -22,8 +22,8 @@
 	<fileset dir="${server.config.dir}/resources/Daytrader3SampleDerbyLibs" id="DerbyFileset" includes="derby-10.10.1.1.jar"/>
 -->
 	<!-- Declare the jar files for MySQL access through JDBC. -->
-	<authData id="TradeDataSourceAuthData" password="admin" user="root"/>
-	<authData id="TradeAdminAuthData" password="admin" user="root"/>
+	<authData id="TradeDataSourceAuthData" password="daytrader" user="daytrader"/>
+	<authData id="TradeAdminAuthData" password="daytrader" user="daytrader"/>
  <library id="MySQLLib">
   <fileset dir="${server.config.dir}/resources/Daytrader3SampleMysqlLibs" includes="*.jar"/>
 </library>
@@ -32,7 +32,7 @@
   <jdbcDriver libraryRef="MySQLLib"/>
   <properties databaseName="daytrader_db" 
               serverName="daytrader-mysql" portNumber="3306" 
-              user="root" password="admin"/>
+              user="daytrader" password="daytrader"/>
 </dataSource>
 
 
@@ -40,7 +40,7 @@
   <jdbcDriver libraryRef="MySQLLib"/>
   <properties databaseName="daytrader_db" 
               serverName="daytrader-mysql" portNumber="3306" 
-              user="root" password="admin"/>
+              user="daytrader" password="daytrader"/>
 </dataSource>
 
 	<messagingEngine id="defaultME">
