@@ -8,6 +8,8 @@ Please clone this git repository to your local machine with installed docker eng
 - [Deploy Daytrader Container](#deploy-daytrader-container)
 - [Monitoring](#monitoring)
 - [DayTrader App Instruction](#daytrader-app-instruction)
+- [Operational Process](#operational-process)
+- [Test Docker Volume](#test-docker-volume)
 
 
 # Setup Docker Network
