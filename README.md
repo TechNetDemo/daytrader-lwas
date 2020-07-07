@@ -2,100 +2,95 @@
 
 Please clone this git repository to your local machine with installed docker engine / docker toolbox
 
-- [Setup Docker Network](#Setup Docker Network)
-- [Create Docker Volume](#Create Docker Volume)
-- [Create MySQL Container](#Create MySQL Container)
-- [Create Daytrader with Websphere Liberty Container](#Create Daytrader with Websphere Liberty Container)
-- [Verification](#Verification)
-- [DayTrader App Instruction](#DayTrader App Instruction)
+- [Setup Docker Network](#setup-docker-network)
+- [Create Docker Volume](#create-docker-volume)
+- [Create MySQL Container](#create-mysql-container)
+- [Create Daytrader with Websphere Liberty Container](#create-daytrader-with-websphere-liberty-container)
+- [Verification](#verification)
+- [DayTrader App Instruction](#daytrader-app-instruction)
 
 
 # Setup Docker Network
 
-1. Create Docker Network for Two Tier App
-  
-  docker network create --driver=bridge --subnet=192.168.0.0/24 br0
+Create Docker Network for Two Tier App
 
+    docker network create --driver=bridge --subnet=192.168.0.0/24 br0
 
-2. Show Docker Network
+Show Docker Network
 
-$ docker network ls
+    docker network ls
 
 
 # Create Docker Volume
 
-1. Create Docker Volume for MySQL Container
+Create Docker Volume for MySQL Container
 
-$ docker volume create daytrader-mysql-volume
+    docker volume create daytrader-mysql-volume
 
 
-2. Show Docker Volume
+Show Docker Volume
 
-$ docker volume ls
+    docker volume ls
 
 
 # Create MySQL Container
 
-1. Pull MySQL Docker Image
+Pull MySQL Docker Image
 
-$ docker pull mysql:8.0.20
-
-
-2. Run MySQL Container
-
-$ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
+    docker pull mysql:8.0.20
 
 
-3. Check Container by Docker Logs
+Run MySQL Container
 
-$ docker logs daytrader-mysql --follow
+    $ docker run -d --name daytrader-mysql --network br0 --publish 3306:3306 --volume daytrader-mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=daytrader_db -e MYSQL_USER=daytrader -e MYSQL_PASSWORD=daytrader mysql:8.0.20
 
 
-4. Enter MySQL container
+Check Container by Docker Logs
 
-$ docker exec -it daytrader-mysql /bin/bash
+    docker logs daytrader-mysql --follow
 
-$ mysql -u root -p
 
-$ show databases;
+Enter MySQL container
 
-$ exit
-
-$ exit
+    docker exec -it daytrader-mysql /bin/bash
+    mysql -u root -p
+    show databases;
+    exit
+    exit
 
 
 # Create Daytrader with Websphere Liberty Container
 
-1. Build Docker Image with Application and Configurations
+Build Docker Image with Application and Configurations
 
-$ docker build -t l-was/daytrader:1.0 .
-
-
-2. Run Container with Custom Image
-
-$ docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
+    docker build -t l-was/daytrader:1.0 .
 
 
-3. Check Container by Docker Logs
+Run Container with Custom Image
 
-$ docker logs daytrader --follow
+    docker run -d --name daytrader --network br0 -p 9080:9080 -p 9443:9443 l-was/daytrader:1.0
+
+
+Check Container by Docker Logs
+
+    docker logs daytrader --follow
 
 
 # Verification
 
-1. Docker Network Inspect
+Docker Network Inspect
 
-$ docker network inspect br0
-
-
-2. Get Running Docker Container
-
-$ docker ps
+    docker network inspect br0
 
 
-3. Get Docker Toolbox VM IP
+Get Running Docker Container
 
-$ docker-machine ip default
+    docker ps
+
+
+Get Docker Toolbox VM IP
+
+    docker-machine ip default
 
 
 # DayTrader App Instruction
