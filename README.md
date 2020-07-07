@@ -23,7 +23,7 @@ For Docker Toolbox, please open Docker Quickstart Terminal.
 
 Right click the terminal, and select "Properties"
 - enable QuickEdit Mode on Options tab
-- adjust Window Size on demand
+- adjust Window Size on Layout tab
 
 
 
