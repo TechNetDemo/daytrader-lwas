@@ -9,5 +9,6 @@ RUN sed -i "s/@@@MYSQL_DAYTRADER_USER@@@/$MYSQL_DAYTRADER_USER/g" /config/server
 RUN sed -i "s/@@@MYSQL_DAYTRADER_PASSWORD@@@/$MYSQL_DAYTRADER_PASSWORD/g" /config/server.xml
 RUN sed -i "s/@@@MYSQL_DAYTRADER_DB@@@/$MYSQL_DAYTRADER_DB/g" /config/server.xml
 RUN sed -i "s/@@@MYSQL_DAYTRADER_SERVICE@@@/$MYSQL_DAYTRADER_SERVICE/g" /config/server.xml
+RUN cat /config/server.xml
 
 #RUN configure.sh
