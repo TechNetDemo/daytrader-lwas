@@ -132,7 +132,7 @@ Input the following information and press `Create`
 1. Go to `Topology`. 
 
 
-2. Click `daytrader-mysql`, and you can see the information of daytrader-app deployment status.
+2. Click `daytrader-mysql`, and you can see daytrader-mysql deployment status.
 
 
 3. Go to `Resources` tab.
