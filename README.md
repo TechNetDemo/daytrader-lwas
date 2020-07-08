@@ -18,14 +18,12 @@ Login as `admin` / `developer`
 
 # Hands on Lab
 
-- [Setup Docker Network](#setup-docker-network)
-- [Create Docker Volume](#create-docker-volume)
-- [Deploy MySQL Container](#deploy-mysql-container)
-- [Deploy Daytrader Container](#deploy-daytrader-container)
-- [Monitoring](#monitoring)
+- [Create Openshift Project](#create-openshift-project)
+- [Deploy MySQL Database](#deploy-mysql-database)
+- [Deploy DayTrader from Dockerfile](#deploy-daytrader-from-dockerfile)
+- [Visit Deployed App](#visit-deployed-app)
 - [DayTrader App Instruction](#daytrader-app-instruction)
-- [Operational Process](#operational-process)
-- [Test Docker Volume](#test-docker-volume)
+
 
 
 ## Create Openshift Project
@@ -77,9 +75,27 @@ Input the following information and press `Create`
 - name: `MYSQL_DAYTRADER_DB`-    resource: `daytrader-mysql` key:  `database-name`
 - name: `MYSQL_DAYTRADER_SERVICE`- resource: `mysql-persistent-parameters-<generated-string>`  key: `DATABASE_SERVICE_NAME`
 
-# DayTrader App Instruction
 
-1. Open Web Browser and go to 
+## Visit Deployed App
+
+1. Go to `Topology`. 
+
+
+2. Click `daytrader-app`, and you can see the information of daytrader-app deployment status.
+
+
+3. Go to `Resources` tab.
+
+
+4. Click the link provided on `Routes` section.
+
+
+5. Append the url by `/daytrader` on web browser.
+
+
+## DayTrader App Instruction
+
+1. Finish section [Visit Deployed App](#visit-deployed-app)
 
 
 2. Go to "Configuration" Tab
