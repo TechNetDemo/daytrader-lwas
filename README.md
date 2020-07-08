@@ -138,7 +138,7 @@ Input the following information and press `Create`
 3. Go to `Resources` tab.
 
 
-4. Click `View Logs` on `Pods` section, and you can see the logs of MySQL server.
+4. Go to `Pods` section and click `View Logs`. You can see the logs of MySQL server.
 
 
 5. Click `Terminal` tab, you can login to container's terminal.
