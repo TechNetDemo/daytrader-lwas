@@ -13,7 +13,7 @@ Click `START SENARIO`
 
 Go to `Console` tab
 
-Login as `admin` / `developer`
+Login as `developer`
 
 
 # Hands on Lab
