@@ -72,10 +72,10 @@ Input the following information and press `Create`
 - Name: `daytrader-app`
 - `Build Configuration`
 - Press `Add from ConfigMap or Secret` 4 times
-- name: `MYSQL_DAYTRADER_USER`  resource: `daytrader-mysql`
-- name: `MYSQL_DAYTRADER_PASSWORD`  resource: `daytrader-mysql`
-- name: `MYSQL_DAYTRADER_DB`    resource: `daytrader-mysql`
-- name: `MYSQL_DAYTRADER_SERVICE`
+- name: `MYSQL_DAYTRADER_USER`-  resource: `daytrader-mysql` key: `database-user`
+- name: `MYSQL_DAYTRADER_PASSWORD`-  resource: `daytrader-mysql` key:  `database-password`
+- name: `MYSQL_DAYTRADER_DB`-    resource: `daytrader-mysql` key:  `database-name`
+- name: `MYSQL_DAYTRADER_SERVICE`- resource: `mysql-persistent-parameters-<generated-string>`  key: `DATABASE_SERVICE_NAME`
 
 # DayTrader App Instruction
 
