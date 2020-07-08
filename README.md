@@ -28,6 +28,10 @@ Login as `developer`
 
 ## Create Openshift Project
 
+Switch to Developer Portal
+
+Go to `Advanced` > `Projects`
+
 Click `Create Project`
 
 Input the following information and press `Create` 
@@ -36,8 +40,6 @@ Input the following information and press `Create`
 
 
 ## Deploy MySQL Database
-
-Switch to Developer Portal
 
 Click `+Add`
 
