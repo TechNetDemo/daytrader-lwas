@@ -70,6 +70,9 @@ Input the following information and press `Create`
 - Container Port: `9080`
 - Application Name: `daytrader-app`
 - Name: `daytrader-app`
+- `Routing`
+- Path: `/daytrader`
+- Target Port: `9080`
 - `Build Configuration`
 - Press `Add from ConfigMap or Secret` 4 times
 - name: `MYSQL_DAYTRADER_USER`-  resource: `daytrader-mysql` key: `database-user`
@@ -90,9 +93,6 @@ Input the following information and press `Create`
 
 
 4. Click the link provided on `Routes` section.
-
-
-5. Append the url by `/daytrader` on web browser.
 
 
 ## DayTrader App Instruction
