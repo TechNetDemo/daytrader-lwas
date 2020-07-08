@@ -23,7 +23,7 @@ Login as `admin` / `developer`
 - [Deploy DayTrader from Dockerfile](#deploy-daytrader-from-dockerfile)
 - [Visit Deployed App](#visit-deployed-app)
 - [DayTrader App Instruction](#daytrader-app-instruction)
-
+- [Other Information](#other-information)
 
 
 ## Create Openshift Project
@@ -125,4 +125,32 @@ Input the following information and press `Create`
 
 
 9. Click "quotes", then you can the volume increased by 100 on the first row.
+
+
+## Other Information
+
+1. Go to `Topology`. 
+
+
+2. Click `daytrader-mysql`, and you can see the information of daytrader-app deployment status.
+
+
+3. Go to `Resources` tab.
+
+
+4. Click `View Logs` on `Pods` section, and you can see the logs of MySQL server.
+
+
+5. Click `Terminal` tab, you can login to container's terminal.
+
+
+6. Login to mysql and perform several queries.
+     
+        $ mysql -u daytrader -p
+        input password: daytrader
+        $ show databases;
+        $ use daytrader_db;
+        $ show tables;
+
+
 
