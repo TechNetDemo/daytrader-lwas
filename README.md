@@ -28,7 +28,7 @@ Login as `developer`
 
 ## Create Openshift Project
 
-Switch to Developer Portal
+Click `Administrator` and switch to `Developer` Portal
 
 Go to `Advanced` > `Projects`
 
