@@ -56,6 +56,8 @@ Input the following information and press `Create`
 - MySQL root user Password: `admin`
 - MySQL Database Name: `daytrader_db`
 
+Inputted information is saved as objects.
+
 
 ## Deploy DayTrader from Dockerfile
 
