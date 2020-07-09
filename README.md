@@ -23,7 +23,8 @@ Login as `developer`
 - [Deploy DayTrader from Dockerfile](#deploy-daytrader-from-dockerfile)
 - [Visit Deployed App](#visit-deployed-app)
 - [DayTrader App Instruction](#daytrader-app-instruction)
-- [Other Information](#other-information)
+- [Verify DB Data](#verify-db-data)
+- [Recreate DB Pods](#recreate-db-pods)
 
 
 ## Create Openshift Project
@@ -131,7 +132,7 @@ Input the following information and press `Create`
 9. Click "quotes", then you can the volume increased by 100 on the first row.
 
 
-## Other Information
+## Verify DB Data
 
 1. Go to `Topology`. 
 
@@ -157,4 +158,34 @@ Input the following information and press `Create`
         $ show tables;
 
 
+## Recreate DB Pods
 
+
+1. Go to `Topology` 
+
+
+2. Click `daytrader-mysql`
+
+
+3. Decrease pod count
+
+
+4. Go to DayTrader Web Page and see whether you can login as `uid:0`
+
+
+5. Go back to OCP4 Developer Portal
+
+
+6. Go to `Topology` 
+
+
+7. Click `daytrader-mysql`
+
+
+8. Increase pod count
+
+
+9. Go to DayTrader Web Page and see whether you can login as `uid:0`
+
+
+10. You can also repeat section [Verify DB Data](#verify-db-data)
